@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ülesanne 1</title>
+</head>
+
+<body>
+    <h1>Lihtne kulude arvestus</h1>
+
+    <!-- Vorm, et sisestada andmed -->
+    <form id="arvutajaVorm">
+        <label for="kilometraaž">Sisesta kaubikute kogu kilometraaž (km):</label>
+        <input type="number" id="kilometraaž" required><br><br>
+
+        <label for="sissetulek">Sisesta päevane sissetulek (€):</label>
+        <input type="number" id="sissetulek" required><br><br>
+
+        <label for="kuluPerKm">Sisesta kulu kilomeetri kohta (€):</label>
+        <input type="number" id="kuluPerKm" step="0.01" required><br><br>
+
+        <button type="button" onclick="arvutaKasum()">Arvuta</button>
+    </form>
+
+    <!-- Tulemus kuvatakse siin -->
+    <h2>Tulemus:</h2>
+    <p id="tulemus"></p>
+
+    <script>
+        // Funktsioon kasumi või kahjumi arvutamiseks
+        function arvutaKasum() {
+            // Võtab kasutaja sisestatud väärtused
+            let kilometraaž = Number(document.getElementById('kilometraaž').value);
+            let sissetulek = Number(document.getElementById('sissetulek').value);
+            let kuluPerKm = Number(document.getElementById('kuluPerKm').value);
+
+            // Arvutame kaubikute kulud
+            let kulud = arvutaKulud(kilometraaž, kuluPerKm);
+
+            // Arvutame päeva kasumi/kahjumi
+            let kasumVõiKahjum = arvutaTulu(sissetulek, kulud);
+
+            // Näitame tulemust
+            näitaTulemust(kasumVõiKahjum);
+        }
+
+        // Funktsioon kulude arvutamiseks vastavalt kilometraažile ja kilomeetri kulule
+        function arvutaKulud(km, kuluPerKm) {
+            return km * kuluPerKm;
+        }
+
+        // Funktsioon kasumi või kahjumi arvutamiseks
+        function arvutaTulu(sissetulek, kulud) {
+            return sissetulek - kulud;
+        }
+
+        // Funktsioon tulemuse kuvamiseks
+        function näitaTulemust(kasumVõiKahjum) {
+            let tulemusElement = document.getElementById('tulemus');
+
+            if (kasumVõiKahjum > 0) {
+                tulemusElement.innerHTML = "Päeva kasum on " + kasumVõiKahjum.toFixed(2) + " €.";
+                tulemusElement.style.color = "green";
+            } else if (kasumVõiKahjum < 0) {
+                tulemusElement.innerHTML = "Päeva kahjum on " + kasumVõiKahjum.toFixed(2) + " €.";
+                tulemusElement.style.color = "red";
+            } else {
+                tulemusElement.innerHTML = "Päev lõppes nullis.";
+                tulemusElement.style.color = "black";
+            }
+        }
+    </script>
+</body>
+
+</html>
