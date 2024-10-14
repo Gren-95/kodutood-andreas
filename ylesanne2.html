@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Andreas Kirs & ChatGPT">
+    <title>Ülesanne 2</title>
+    <style>
+        body {
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .gameArea {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>Numbri arvamise mäng</h1>
+<div class="juhised">
+    <h3>JUHISED:</h3>
+    <p>Arvuti on valinud juhusliku numbri vahemikus 1 kuni 10. Sinu ülesanne on see ära arvata. <br />Kui pakud vale numbri, annab arvuti vihje, kas pakkuda suurem või väiksem number. <br />Edu!</p>
+</div>
+<div class="gameArea">
+    <!-- Kasutaja sisend ja nupp -->
+    <input type="number" id="guessInput" placeholder="Sisesta number 1-10" min="1" max="10">
+    <button id="guessButton" onclick="checkGuess()">Arva ära</button>
+
+    <!-- Taaskäivitamise nupp -->
+    <button id="restartButton" style="display:none;" onclick="restartGame()">Alusta uuesti</button>
+
+    <!-- Tagasiside kasutajale -->
+    <div class="feedback" id="feedback"></div>
+</div>
+
+<script>
+    // Algväärtustame juhusliku numbri vahemikus 1-10
+    let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+    // Funktsioon, mis kontrollib kasutaja pakkumist
+    function checkGuess() {
+        // Saame kasutaja sisestatud numbri
+        const userGuess = document.getElementById('guessInput').value;
+
+        // Tagasiside element
+        const feedback = document.getElementById('feedback');
+
+        // Kui sisend on tühi või vale
+        if (userGuess === '' || isNaN(userGuess)) {
+            feedback.textContent = 'Palun sisesta kehtiv number vahemikus 1 kuni 10.';
+            return;
+        }
+
+        // Muudame sisendi numbriks
+        const guessNumber = parseInt(userGuess);
+
+        // Kontrollime, kas kasutaja pakkumine on õige
+        if (guessNumber < randomNumber) {
+            feedback.textContent = 'Suurem!';
+        } else if (guessNumber > randomNumber) {
+            feedback.textContent = 'Väiksem!';
+        } else {
+            feedback.textContent = 'Õige vastus! Õnnitlused!';
+            // Peidame arvamise nupu ja kuvame taaskäivitamise nupu
+            document.getElementById('guessButton').style.display = 'none';
+            document.getElementById('restartButton').style.display = 'inline';
+        }
+    }
+
+    // Funktsioon, mis alustab mängu uuesti
+    function restartGame() {
+        // Genereerime uue juhusliku numbri
+        randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        // Nullime tagasiside
+        document.getElementById('feedback').textContent = '';
+
+        // Nullime kasutaja sisendi
+        document.getElementById('guessInput').value = '';
+
+        // Kuvame uuesti arvamise nupu ja peidame taaskäivitamise nupu
+        document.getElementById('guessButton').style.display = 'inline';
+        document.getElementById('restartButton').style.display = 'none';
+    }
+</script>
+</body>
+
+</html>
