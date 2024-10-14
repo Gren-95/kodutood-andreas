@@ -18,22 +18,18 @@
         <input type="number" id="kuluPerKm" step="0.01" required>                                               <!-- input märgend, mille tüüp on number ja see on vajalik vormi sisestuseks. ID on kuluPerKm, aste on 0.01 -->
         <br><br>                                                                                                <!-- kaks reavahetus märgendit -->
         <button type="button" onclick="arvutaKasum()">Arvuta</button>                                           <!-- nupu märgend, mis peale vajutus jooksutab funktsiooni arvutaKasum()-->
-    </form>
+    </form>                                                                                                     <!-- vormi märgendi lõpp -->
 
-    <!-- Tulemus kuvatakse siin -->
-    <h2>Tulemus:</h2>
-    <p id="tulemus"></p>
+    <h2>Tulemus:</h2>                                                                                           <!-- pealkiri 2 märgend -->
+    <p id="tulemus"></p>                                                                                        <!-- p märgend, mis on tulemuse konteiner -->
 
-    <script>
-        // Funktsioon kasumi või kahjumi arvutamiseks
-        function arvutaKasum() {
-            // Võtab kasutaja sisestatud väärtused
-            let kilometraaž = Number(document.getElementById('kilometraaž').value);
-            let sissetulek = Number(document.getElementById('sissetulek').value);
-            let kuluPerKm = Number(document.getElementById('kuluPerKm').value);
+    <script>                                                                                                    //skript märgendi algus
+        function arvutaKasum() {                                                                                // Funktsioon kasumi või kahjumi arvutamiseks
+            let kilometraaž = Number(document.getElementById('kilometraaž').value);                             // deklareerib kilometraazi muutuja, mis vastab html id-le
+            let sissetulek = Number(document.getElementById('sissetulek').value);                               // deklareerib sissetulek muutuja, mis vastab html id-le
+            let kuluPerKm = Number(document.getElementById('kuluPerKm').value);                                 // deklareerib kuluPerKm muutuja, mis vastab html id-le
 
-            // Arvutame kaubikute kulud
-            let kulud = arvutaKulud(kilometraaž, kuluPerKm);
+            let kulud = arvutaKulud(kilometraaž, kuluPerKm);                                                    // deklareerib kulud muutuja, mis jooksutab arvutakasum() funktsiooni ja lisab 2 sisendit
 
             // Arvutame päeva kasumi/kahjumi
             let kasumVõiKahjum = arvutaTulu(sissetulek, kulud);
