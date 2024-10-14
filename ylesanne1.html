@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="et">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ülesanne 1</title>
-</head>
-
-<body>
-    <h1>Lihtne kulude arvestus</h1>
-
-    <!-- Vorm, et sisestada andmed -->
-    <form id="arvutajaVorm">
-        <label for="kilometraaž">Sisesta kaubikute kogu kilometraaž (km):</label>
-        <input type="number" id="kilometraaž" required><br><br>
-
-        <label for="sissetulek">Sisesta päevane sissetulek (€):</label>
+<!DOCTYPE html>                                                                                                 <!-- määrab faili tüübi html-iks -->
+<html lang="et">                                                                                                <!-- määrab html faili keele -->
+<head>                                                                                                          <!-- alustab "pea" märgendit -->
+    <meta charset="UTF-8">                                                                                      <!-- määrab kodeeringu -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                      <!-- määrab kuvamis scale-i -->
+    <title>Ülesanne 1</title>                                                                                   <!-- määrab faili pealkirja, mida kuvatakse brauser lehe peal -->
+</head>                                                                                                         <!-- lõpetab "pea" märgendit -->
+<body>                                                                                                          <!-- alustab "keha" märgendit -->
+    <h1>Lihtne kulude arvestus</h1>                                                                             <!-- pealkiri, tase 1-->
+    <form id="arvutajaVorm">                                                                                    <!-- html vorm algus, mille id on arvutajaVorm-->
+        <label for="kilometraaž">Sisesta kaubikute kogu kilometraaž (km):</label>                               <!-- silt kilometraažile -->
+        <input type="number" id="kilometraaž" required>                                                         <!-- input märgend, mille tüüp on number ja see on vajalik vormi sisestuseks. ID on kilometraaž -->
+        <br><br>                                                                                                <!-- kaks reavahetus märgendit -->
+        <label for="sissetulek">Sisesta päevane sissetulek (€):</label>                                         <!-- silt sissetulekule -->
         <input type="number" id="sissetulek" required><br><br>
 
         <label for="kuluPerKm">Sisesta kulu kilomeetri kohta (€):</label>
