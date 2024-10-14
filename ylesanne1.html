@@ -32,38 +32,38 @@
             let kulud = arvutaKulud(kilometraaž, kuluPerKm);                                                    // deklareerib kulud muutuja, mis jooksutab arvutakasum() funktsiooni ja lisab 2 sisendit
 
             // Arvutame päeva kasumi/kahjumi
-            let kasumVõiKahjum = arvutaTulu(sissetulek, kulud);
+            let kasumVõiKahjum = arvutaTulu(sissetulek, kulud);                                                 // deklareerib kasumVõiKahjum muutuja, mis jooksutab arvutakasum() funktsiooni ja lisab 2 sisendit
 
             // Näitame tulemust
-            näitaTulemust(kasumVõiKahjum);
+            näitaTulemust(kasumVõiKahjum);                                                                      // väljastab viimase muutuja väärtuse näitaTulemust() funktsioonile
         }
 
         // Funktsioon kulude arvutamiseks vastavalt kilometraažile ja kilomeetri kulule
-        function arvutaKulud(km, kuluPerKm) {
-            return km * kuluPerKm;
+        function arvutaKulud(km, kuluPerKm) {                                                                   // deklareerib funktssiooni, milles on 2 sisendit
+            return km * kuluPerKm;                                                                              // väljastab km * kuluPerKm tulemuse
         }
 
         // Funktsioon kasumi või kahjumi arvutamiseks
-        function arvutaTulu(sissetulek, kulud) {
-            return sissetulek - kulud;
+        function arvutaTulu(sissetulek, kulud) {                                                                // deklareerib funktssiooni, milles on 2 sisendit
+            return sissetulek - kulud;                                                                          // väljastab sissetuleku - kulud tulemuse
         }
 
         // Funktsioon tulemuse kuvamiseks
-        function näitaTulemust(kasumVõiKahjum) {
-            let tulemusElement = document.getElementById('tulemus');
+        function näitaTulemust(kasumVõiKahjum) {                                                                // deklareerib funktssiooni, milles on 1 sisend
+            let tulemusElement = document.getElementById('tulemus');                                            // deklareerib tulemusElement muutuja, mis vastab html id-le
 
-            if (kasumVõiKahjum > 0) {
-                tulemusElement.innerHTML = "Päeva kasum on " + kasumVõiKahjum.toFixed(2) + " €.";
-                tulemusElement.style.color = "green";
-            } else if (kasumVõiKahjum < 0) {
-                tulemusElement.innerHTML = "Päeva kahjum on " + kasumVõiKahjum.toFixed(2) + " €.";
-                tulemusElement.style.color = "red";
-            } else {
-                tulemusElement.innerHTML = "Päev lõppes nullis.";
-                tulemusElement.style.color = "black";
-            }
+            if (kasumVõiKahjum > 0) {                                                                           // kui kasumVõiKahjum on suurem, kui 0, siis
+                tulemusElement.innerHTML = "Päeva kasum on " + kasumVõiKahjum.toFixed(2) + " €.";               // lisab tulemusElement sisse teksti "Päeva kasum on " + kasumVõiKahjum.maksimum komakoha liikumine 2 kohta
+                tulemusElement.style.color = "green";                                                           // muuda teksti väärtus roheliseks
+            } else if (kasumVõiKahjum < 0) {                                                                    // kui eelnevale if ei läinud täide siis, tee seda kui kasumVõiKahjum on väiksem kui 0
+                tulemusElement.innerHTML = "Päeva kahjum on " + kasumVõiKahjum.toFixed(2) + " €.";              // lisab tulemusElement sisse teksti "Päeva kasum on " + kasumVõiKahjum.maksimum komakoha liikumine 2 kohta
+                tulemusElement.style.color = "red";                                                             // muuda teksti väärtus punaseks
+            } else {                                                                                            // kui teisele if funktsioonidele ei vastanud midagi, siis 
+                tulemusElement.innerHTML = "Päev lõppes nullis.";                                               // sisesta tulemusElementi väärtus "Päev lõppes nullis."
+                tulemusElement.style.color = "black";                                                           // muuda teksti väärtus mustaks
+            }                                                                                                   // if/else lõpp
         }
-    </script>
-</body>
+    </script>                                                                                                   <!-- skript märgendi lõpp -->
+</body>                                                                                                         <!-- "keha" märgendi lõpp -->
 
-</html>
+</html>                                                                                                         <!-- html märgendi lõpp -->
