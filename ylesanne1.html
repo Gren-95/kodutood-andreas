@@ -12,12 +12,12 @@
         <input type="number" id="kilometraaž" required>                                                         <!-- input märgend, mille tüüp on number ja see on vajalik vormi sisestuseks. ID on kilometraaž -->
         <br><br>                                                                                                <!-- kaks reavahetus märgendit -->
         <label for="sissetulek">Sisesta päevane sissetulek (€):</label>                                         <!-- silt sissetulekule -->
-        <input type="number" id="sissetulek" required><br><br>
-
-        <label for="kuluPerKm">Sisesta kulu kilomeetri kohta (€):</label>
-        <input type="number" id="kuluPerKm" step="0.01" required><br><br>
-
-        <button type="button" onclick="arvutaKasum()">Arvuta</button>
+        <input type="number" id="sissetulek" required>                                                          <!-- input märgend, mille tüüp on number ja see on vajalik vormi sisestuseks. ID on sissetulek -->
+        <br><br>                                                                                                <!-- kaks reavahetus märgendit -->
+        <label for="kuluPerKm">Sisesta kulu kilomeetri kohta (€):</label>                                       <!-- silt kuluPerKm-le -->
+        <input type="number" id="kuluPerKm" step="0.01" required>                                               <!-- input märgend, mille tüüp on number ja see on vajalik vormi sisestuseks. ID on kuluPerKm, aste on 0.01 -->
+        <br><br>                                                                                                <!-- kaks reavahetus märgendit -->
+        <button type="button" onclick="arvutaKasum()">Arvuta</button>                                           <!-- nupu märgend, mis peale vajutus jooksutab funktsiooni arvutaKasum()-->
     </form>
 
     <!-- Tulemus kuvatakse siin -->
